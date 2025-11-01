@@ -1,0 +1,25 @@
+Q3
+----------------------
+epochs = 30
+batch_size = 64
+learning_rate = 7.5e-5
+decay_rate = 5e-4
+
+c_dropout = 0.30
+f_dropout = 0.62
+
+Q4
+-----------------------
+epochs = 30
+batch_size = 64
+learning_rate = 1e-4
+decay_rate = 5e-4
+
+c_dropout = 0.40
+f_dropout = 0.50
+
+test_loss = ~0.297
+
+
+
+What is considered through?
