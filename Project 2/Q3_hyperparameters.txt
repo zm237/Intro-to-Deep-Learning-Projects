@@ -1,25 +1,20 @@
-Q3
-----------------------
-epochs = 30
-batch_size = 64
-learning_rate = 7.5e-5
-decay_rate = 5e-4
+---- Epoch: 46/50 -----
+Training: 100%|██████████| 1000/1000 [00:19<00:00, 52.36 batch/s]
+Testing: 100%|██████████| 200/200 [00:01<00:00, 102.27 batches/s]
 
-c_dropout = 0.30
-f_dropout = 0.62
+   -> Training Loss:  0.2843
 
-Q4
------------------------
-epochs = 30
-batch_size = 64
-learning_rate = 1e-4
-decay_rate = 5e-4
+   -> Testing Loss:  0.2960
 
-c_dropout = 0.40
-f_dropout = 0.50
+To start, I wanted to use different initial hyperparameters rather than the ones that I found for my model in Question 3 since I belived that doing so might allow me to learn more about my current model. As such, I used batch_size = 100, learning_rate = 1e-4, decay_rate = 5e-4, c_dropout = 0.10, and f_dropout = 0.10. For the first training loop, the model was able to achieve a training and testing loss of around 0.32 at the 11th epoch before it began to overfit. Unlike the previous models, the training and testing loss were pretty close to each other per epoch with not considerable gap, for the other models, the gap between the training and testing loss would be around 0.15 with the testing loss always being lower. Seeing this, I decided to go straight to tunning the dropout, from c_dropout = f_dropout = 0.10 to c_dropout = f_dropout = 0.20.
 
-test_loss = ~0.297
+In the second trial, my model was only able to get a testing loss around 0.3180 at the 19th epoch before it began overfitting. Though, by the 4th epoch (around 0.40 loss), the model began learning way too slowly. At first, I wanted to change the dropout rate, but I wanted to fiddle around with the batch size a little bit more, so I decided to change the batch size from 100 to 125 first. Yet, this did not help as the model still was stuck at a similar loss. Decreasing the batch size to 50 gave me the same results, so I decided to move onto changing the learning rate.
+
+For the fifth trial, I increased the learning rate from 1e-4 to 5e-4, and the model was able to get a testing loss = 0.3073 at the 17th epoch. By this point, I have started to notice that getting the loss lower than 0.25 would probably require better architecture. Seeing the results, I was satisfied with the learning rate, so I decided to once again change the dropouts since learning rate does not seem to be the reason as to why the model is learning slower.
+
+In the sixth attempt, I changed the dropouts to be both 0.30 which let the model achieve a new minimum testing loss of 0.2960 at the 46th epoch. As can be seen, it seems the model requires a lot more training time at its current state. While it is training though, the training and testing losses decrement very slowly often with a minimal loss gap.
+
+For my final change to training, I decided that I should try increasing the weight decay from 5e-4 to 1e-3 to see if it would benefit due to the model's slow training. 
 
 
 
-What is considered through?
